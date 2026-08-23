@@ -12,8 +12,22 @@ public class AuthService
         _passwordHasher = passwordHasher;
     }
 
-    public string HashPassword(User user, string password)
+    public object Register(RegisterRequest registerRequest)
     {
-        return _passwordHasher.HashPassword(user, password);
+
+        var user = new User
+        {
+            Email = registerRequest.Email,
+            FirstName = registerRequest.FirstName,
+            LastName = registerRequest.LastName
+
+        };
+
+        var hashedPassword = _passwordHasher.HashPassword(user, registerRequest.Password);
+
+        user.PasswordHash = hashedPassword;
+
+        return user;
+
     }
 }
