@@ -19,12 +19,21 @@ public class AuthController : ControllerBase
 
 
     [HttpPost("register")]
-    public IActionResult Register([FromBody] RegisterRequest registerRequest)
+    public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
     {
 
-        var result = _authService.Register(registerRequest);
 
-        return Ok(result);
+        var totalAdded = await _authService.Register(registerRequest);
+
+        if (totalAdded == 1)
+        {
+            return Ok(new { message = $"User {registerRequest.Email} successfully registered." });
+        }
+        else
+        {
+            throw new Exception("User was not saved");
+        }
+
 
 
     }

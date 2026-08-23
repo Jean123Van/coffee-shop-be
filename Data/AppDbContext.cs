@@ -1,6 +1,8 @@
 using CoffeeNoteBe.Models.Authentication;
 using Microsoft.EntityFrameworkCore;
 
+namespace CoffeeNoteBe.Data;
+
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options)
