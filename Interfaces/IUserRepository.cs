@@ -1,4 +1,4 @@
-using CoffeeNoteBe.Models.Authentication;
+using CoffeeNoteBe.Models;
 
 namespace CoffeeNoteBe.Interfaces;
 

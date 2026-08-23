@@ -1,6 +1,6 @@
 using CoffeeNoteBe.Data;
 using CoffeeNoteBe.Interfaces;
-using CoffeeNoteBe.Models.Authentication;
+using CoffeeNoteBe.Models;
 
 namespace CoffeeNoteBe.Repositories;
 

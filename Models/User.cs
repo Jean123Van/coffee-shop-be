@@ -1,4 +1,4 @@
-namespace CoffeeNoteBe.Models.Authentication;
+namespace CoffeeNoteBe.Models;
 
 public class User
 {

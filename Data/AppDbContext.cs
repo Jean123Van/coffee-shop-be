@@ -1,4 +1,5 @@
-using CoffeeNoteBe.Models.Authentication;
+
+using CoffeeNoteBe.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeNoteBe.Data;

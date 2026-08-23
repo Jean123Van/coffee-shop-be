@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace CoffeeNoteBe.Models.Authentication;
+namespace CoffeeNoteBe.DTO.User;
 
 public record RegisterRequest(
     [Required] string FirstName,

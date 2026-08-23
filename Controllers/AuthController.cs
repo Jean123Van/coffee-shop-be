@@ -1,4 +1,4 @@
-using CoffeeNoteBe.Models.Authentication;
+using CoffeeNoteBe.DTO.User;
 using CoffeeNoteBe.Services;
 using Microsoft.AspNetCore.Mvc;
 

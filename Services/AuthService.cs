@@ -1,5 +1,6 @@
+using CoffeeNoteBe.DTO.User;
 using CoffeeNoteBe.Interfaces;
-using CoffeeNoteBe.Models.Authentication;
+using CoffeeNoteBe.Models;
 using CoffeeNoteBe.Repositories;
 using Microsoft.AspNetCore.Identity;
 
