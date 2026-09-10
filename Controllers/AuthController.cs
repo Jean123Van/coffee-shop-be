@@ -21,8 +21,6 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
     {
-
-
         var totalAdded = await _authService.Register(registerRequest);
 
         if (totalAdded == 1)
@@ -33,8 +31,5 @@ public class AuthController : ControllerBase
         {
             throw new Exception("User was not saved");
         }
-
-
-
     }
 }
