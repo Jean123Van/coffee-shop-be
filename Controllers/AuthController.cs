@@ -1,3 +1,4 @@
+using CoffeeNoteBe.DTO.user;
 using CoffeeNoteBe.DTO.User;
 using CoffeeNoteBe.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -32,4 +33,25 @@ public class AuthController : ControllerBase
             throw new Exception("User was not saved");
         }
     }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+    {
+        try
+        {
+            return Ok(await _authService.Login(loginRequest));
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            return Unauthorized(ex.Message);
+
+        }
+        catch (Exception)
+        {
+            throw new Exception("Something went wrong logging in. Please try again.");
+        }
+        ;
+    }
+
+
 }
