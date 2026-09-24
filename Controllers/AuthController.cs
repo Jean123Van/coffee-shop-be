@@ -46,7 +46,7 @@ public class AuthController : ControllerBase
             return Unauthorized(ex.Message);
 
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return StatusCode(500, "Something went wrong logging in. Please try again.");
         }
