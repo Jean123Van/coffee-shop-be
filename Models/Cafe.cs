@@ -7,6 +7,9 @@ public class Cafe
     public required string Location { get; set; }
     public string AboutUs { get; set; } = string.Empty;
 
+    public int UserCreatorId { get; set; }
+    public User? UserCreator { get; set; }
+
     public bool IsOpenMonday { get; set; }
     public string MondayStart { get; set; } = string.Empty;
     public string MondayEnd { get; set; } = string.Empty;

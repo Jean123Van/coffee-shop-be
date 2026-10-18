@@ -21,7 +21,114 @@ namespace coffee_note_be.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CoffeeNoteBe.Models.Authentication.User", b =>
+            modelBuilder.Entity("CoffeeNoteBe.Models.Cafe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AboutUs")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CafeName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FridayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FridayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsOpenFriday")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsOpenMonday")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsOpenSaturday")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsOpenSunday")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsOpenThursday")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsOpenTuesday")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsOpenWednesday")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MondayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MondayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SaturdayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SaturdayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SundayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SundayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ThursdayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ThursdayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TuesdayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TuesdayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("UserCreatorId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("WednesdayEnd")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("WednesdayStart")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserCreatorId");
+
+                    b.ToTable("Cafes");
+                });
+
+            modelBuilder.Entity("CoffeeNoteBe.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,6 +155,22 @@ namespace coffee_note_be.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("CoffeeNoteBe.Models.Cafe", b =>
+                {
+                    b.HasOne("CoffeeNoteBe.Models.User", "UserCreator")
+                        .WithMany("Cafes")
+                        .HasForeignKey("UserCreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserCreator");
+                });
+
+            modelBuilder.Entity("CoffeeNoteBe.Models.User", b =>
+                {
+                    b.Navigation("Cafes");
                 });
 #pragma warning restore 612, 618
         }
