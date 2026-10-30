@@ -4,5 +4,5 @@ namespace CoffeeNoteBe.Interfaces;
 
 public interface ICafeRepository
 {
-    Task<string> Add(Cafe cafe);
+    Task<int> Add(Cafe cafe);
 }

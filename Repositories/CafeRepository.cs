@@ -17,9 +17,12 @@ public class CafeRepository : ICafeRepository
         _cafes = appDbContext.Cafes;
     }
 
-    public async Task<string> Add(Cafe cafe)
+    public async Task<int> Add(Cafe cafe)
     {
-        return "Created cafe successfully";
+        _cafes.Add(cafe);
+        return await _appDbContext.SaveChangesAsync();
+
+
     }
 
 }
