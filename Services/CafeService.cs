@@ -102,11 +102,16 @@ public class CafeService
         }
     }
 
-    public async Task<CafeDetails> GetCafeDetailsById(int cafeId)
+    public async Task<Cafe> GetCafeDetailsById(int cafeId)
     {
-        var cafeDetails = new CafeDetails("random");
+        var cafe = await _cafeRepository.GetCafeById(cafeId);
 
-        return cafeDetails;
+        if (cafe == null)
+        {
+            throw new KeyNotFoundException("Invalid ID. Cafe does not exist");
+        }
+
+        return cafe;
     }
 
 }

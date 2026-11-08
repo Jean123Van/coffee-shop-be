@@ -25,4 +25,10 @@ public class CafeRepository : ICafeRepository
 
     }
 
+    public async Task<Cafe?> GetCafeById(int cafeId)
+    {
+        var cafe = await _cafes.FindAsync(cafeId);
+        return cafe;
+    }
+
 }

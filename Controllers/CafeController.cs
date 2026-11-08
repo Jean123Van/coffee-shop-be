@@ -46,7 +46,12 @@ public class CafeController : ControllerBase
     {
         try
         {
-            return Ok(cafeId);
+            var result = await _cafeService.GetCafeDetailsById(cafeId);
+            return Ok(result);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
         }
         catch (Exception)
         {
