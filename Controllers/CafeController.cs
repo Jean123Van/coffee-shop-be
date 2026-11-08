@@ -39,4 +39,18 @@ public class CafeController : ControllerBase
             return StatusCode(500, "Something unexpected went wrong.");
         }
     }
+
+    [Authorize]
+    [HttpGet("{cafeId:int}")]
+    public async Task<IActionResult> GetCafeById(int cafeId)
+    {
+        try
+        {
+            return Ok(cafeId);
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, "Something unexpected went wrong.");
+        }
+    }
 }

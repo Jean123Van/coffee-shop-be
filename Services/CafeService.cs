@@ -102,4 +102,11 @@ public class CafeService
         }
     }
 
+    public async Task<CafeDetails> GetCafeDetailsById(int cafeId)
+    {
+        var cafeDetails = new CafeDetails("random");
+
+        return cafeDetails;
+    }
+
 }
