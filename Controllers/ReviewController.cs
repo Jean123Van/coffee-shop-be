@@ -1,3 +1,4 @@
+using CoffeeNoteBe.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,15 +8,22 @@ namespace CoffeeNoteBe.Controllers;
 [Route("api/review")]
 public class ReviewController : ControllerBase
 {
+    private readonly ReviewService _reviewService;
 
+    public ReviewController(ReviewService reviewService)
+    {
+        _reviewService = reviewService;
+    }
 
     [Authorize]
     [HttpGet("ratings/get-all/{cafeId:int}")]
     public async Task<IActionResult> GetAllTotalRatings(int cafeId)
     {
+
         try
         {
-            return Ok("Get all ratings endpoint");
+            var result = await _reviewService.GetAllTotalRatings(cafeId);
+            return Ok(result);
         }
         catch (Exception)
         {
