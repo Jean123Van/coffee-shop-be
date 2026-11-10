@@ -37,4 +37,6 @@ public class Cafe
     public bool IsOpenSunday { get; set; }
     public string SundayStart { get; set; } = string.Empty;
     public string SundayEnd { get; set; } = string.Empty;
+
+    public ICollection<Review> Reviews { get; set; } = [];
 }

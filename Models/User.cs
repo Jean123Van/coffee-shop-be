@@ -8,5 +8,6 @@ public class User
     public string Email { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;
 
-    public ICollection<Cafe> Cafes { get; set; } = new List<Cafe>();
+    public ICollection<Cafe> Cafes { get; set; } = [];
+    public ICollection<Review> Reviews { get; set; } = [];
 }

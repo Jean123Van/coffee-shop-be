@@ -13,4 +13,6 @@ public class AppDbContext : DbContext
 
     public DbSet<User> Users => Set<User>();
     public DbSet<Cafe> Cafes => Set<Cafe>();
+    public DbSet<Review> Reviews => Set<Review>();
+    public DbSet<CafeReviewSummary> CafeReviewSummary => Set<CafeReviewSummary>();
 }
