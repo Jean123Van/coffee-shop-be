@@ -17,12 +17,11 @@ public class ReviewController : ControllerBase
 
     [Authorize]
     [HttpGet("ratings/get-all/{cafeId:int}")]
-    public async Task<IActionResult> GetAllTotalRatings(int cafeId)
+    public async Task<IActionResult> GetReviewSummaryByCafe(int cafeId)
     {
-
         try
         {
-            var result = await _reviewService.GetAllTotalRatings(cafeId);
+            var result = await _reviewService.GetReviewSummaryByCafe(cafeId);
             return Ok(result);
         }
         catch (Exception)

@@ -114,4 +114,9 @@ public class CafeService
         return cafe;
     }
 
+    public async Task<List<Cafe>> GetTopRatedCafes()
+    {
+
+    }
+
 }

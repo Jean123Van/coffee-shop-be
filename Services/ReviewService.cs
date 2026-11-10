@@ -4,7 +4,7 @@ namespace CoffeeNoteBe.Services;
 
 public class ReviewService
 {
-    public async Task<GetAllTotalRatings> GetAllTotalRatings(int cafeId)
+    public async Task<GetAllTotalRatings> GetReviewSummaryByCafe(int cafeId)
     {
         var result = new GetAllTotalRatings(
             25,
